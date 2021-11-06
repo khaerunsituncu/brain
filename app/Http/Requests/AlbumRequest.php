@@ -25,13 +25,13 @@ class AlbumRequest extends FormRequest
     public function rules()
     {
         return [
-            'band' => [
+            'name' => [
                 'required', 
                 Rule::unique('albums')->where(function ($query) {
                     return $query->where('band_id', $this->band);
                 })
             ],
-            'name' => 'required',
+            'band' => 'required',
             'year' => 'required',
         ];
     }
